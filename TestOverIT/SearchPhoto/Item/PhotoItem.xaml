@@ -37,7 +37,11 @@
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SearchPhotoViewModel}}, Path=PhotoSelectedCommand}" CommandParameter="{Binding}" />
                     </Grid.GestureRecognizers>
-                    <Image Source="{Binding ImageUrl}" Aspect="Center" HeightRequest="100" WidthRequest="100" />
+                    <Image Aspect="Center" HeightRequest="100" WidthRequest="100">
+                        <Image.Source>
+                            <UriImageSource Uri="{Binding ImageUrl}" CacheValidity="1" CachingEnabled="True"/>
+                        </Image.Source>
+                    </Image>
                 </Grid>
             </Border>
 

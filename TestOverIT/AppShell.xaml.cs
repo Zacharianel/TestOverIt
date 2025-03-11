@@ -1,10 +1,13 @@
-﻿namespace TestOverIT
+﻿using TestOverIT.SearchPhoto.Item;
+
+namespace TestOverIT;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+
+        Routing.RegisterRoute(nameof(PagePhoto), typeof(PagePhoto));
     }
 }

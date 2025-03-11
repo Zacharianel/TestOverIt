@@ -1,7 +1,9 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Maui.Views;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using TestOverIT.BackEnds;
+using TestOverIT.SearchPhoto.Item;
 using TestOverIT.SearchPhoto.Model;
 
 namespace TestOverIT.SearchPhoto.ViewModel;
@@ -28,11 +30,23 @@ public partial class SearchPhotoViewModel : ObservableObject
 
     public IRelayCommand<FlickrPhoto> PhotoSelectedCommand { get; }
 
-    private void OnPhotoSelected(FlickrPhoto photo)
+    private async void OnPhotoSelected(FlickrPhoto photoSelected)
     {
-        if (photo == null) return;
+        try
+        {
+            if (photoSelected == null) return;
 
-        SelectedPhoto = photo;
+            var navigationParams = new Dictionary<string, object>
+            {
+                { "SelectedPhoto", photoSelected }
+            };
+
+            await Shell.Current.GoToAsync(nameof(PagePhoto), true, navigationParams);
+        }
+        catch (Exception ex)
+        {
+            await ShowErrorAsync($"Error during search: {ex.Message}");
+        }
     }
 
 
@@ -73,7 +87,7 @@ public partial class SearchPhotoViewModel : ObservableObject
 
         _currentPage++; 
 
-        _isLoading = true;
+        _isLoading = false;
     }
 
     private async Task ShowErrorAsync(string message)

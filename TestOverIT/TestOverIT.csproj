@@ -68,6 +68,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="SearchPhoto\Item\PagePhoto.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="SearchPhoto\Item\PhotoItem.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

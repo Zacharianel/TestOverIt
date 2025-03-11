@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestOverIT.SearchPhoto.Item.PagePhoto"
+             Title="PagePhoto">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Text="{Binding Title}" HorizontalOptions="Center" VerticalOptions="Center" Margin="10,10"/>
+        <Image Grid.Row="1" Source="{Binding ImageUrl}" Aspect="AspectFit" Margin="10,10"/>
+        <Button Grid.Row="2" Text="Back" Clicked="Button_Clicked" VerticalOptions="Center" HorizontalOptions="Center" Margin="10,10"/>
+
+    </Grid>
+</ContentPage>
