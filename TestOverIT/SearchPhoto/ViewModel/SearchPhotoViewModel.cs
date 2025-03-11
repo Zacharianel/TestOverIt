@@ -60,7 +60,7 @@ public partial class SearchPhotoViewModel : ObservableObject
 
         await LoadMorePhotos();
 
-        _isLoading = true;
+        _isLoading = false;
     }
 
     [RelayCommand]
